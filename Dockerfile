@@ -3,7 +3,7 @@ ENV DOCROOT /docroot
 WORKDIR $DOCROOT
 
 RUN apk upgrade --no-cache \
-    && apk --update --no-cache add bash sudo wget curl unzip tzdata supervisor nginx php7 php7-fpm php7-curl php7-cli php7-mcrypt php7-gd php7-mbstring \
+    && apk --update --no-cache add bash sudo wget curl unzip tzdata supervisor nginx php7 php7-fpm php7-gd php7-apcu php7-ctype php7-curl php7-dom php7-fileinfo php7-ftp php7-iconv php7-intl php7-json php7-mbstring php7-mcrypt php7-mysqlnd php7-opcache php7-openssl php7-pdo php7-pdo_sqlite php7-phar php7-posix php7-session php7-simplexml php7-sqlite3 php7-tokenizer php7-xml php7-xmlreader php7-xmlwriter php7-zlib \
     && sed -i -E "s/127\.0\.0\.1:9000/\/var\/run\/php-fpm\/php-fpm.sock/" /etc/php7/php-fpm.d/www.conf \
     && mkdir /var/run/php-fpm \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
